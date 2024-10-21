@@ -1,7 +1,7 @@
 package br.com.gerenciador.tarefas.repository;
 
 import br.com.gerenciador.tarefas.entity.Role;
-import br.com.gerenciador.tarefas.permissions.PermissionEnum;
+import br.com.gerenciador.tarefas.enums.PermissionEnum;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

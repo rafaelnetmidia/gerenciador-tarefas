@@ -1,7 +1,7 @@
 package br.com.gerenciador.tarefas.entity;
 
 
-import br.com.gerenciador.tarefas.permissions.PermissionEnum;
+import br.com.gerenciador.tarefas.enums.PermissionEnum;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;

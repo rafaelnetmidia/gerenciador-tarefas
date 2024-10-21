@@ -58,4 +58,8 @@ public class UserService {
         return this.userRepository.findAll();
     }
 
+    public Users findById(Long id) {
+        return this.userRepository.findById(id).orElse(null);
+    }
+
 }

@@ -2,7 +2,7 @@ package br.com.gerenciador.tarefas.config;
 
 import br.com.gerenciador.tarefas.filter.FilterAuthentication;
 import br.com.gerenciador.tarefas.filter.LoginFilter;
-import br.com.gerenciador.tarefas.permissions.PermissionEnum;
+import br.com.gerenciador.tarefas.enums.PermissionEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -43,6 +43,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.GET, "/test-api-hello-world").permitAll()
                         .requestMatchers(HttpMethod.GET, "/users").hasAnyAuthority(PermissionEnum.USER.toString())
                         .requestMatchers(HttpMethod.POST, "/users").hasAnyAuthority(PermissionEnum.ADMIN.toString())
+                        .requestMatchers(HttpMethod.POST, "/manager-tasks").hasAnyAuthority(PermissionEnum.ADMIN.toString())
                         .anyRequest()
                         .authenticated());
 

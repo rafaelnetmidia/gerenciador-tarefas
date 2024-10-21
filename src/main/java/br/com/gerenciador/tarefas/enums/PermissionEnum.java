@@ -1,4 +1,4 @@
-package br.com.gerenciador.tarefas.permissions;
+package br.com.gerenciador.tarefas.enums;
 
 public enum PermissionEnum {
 
