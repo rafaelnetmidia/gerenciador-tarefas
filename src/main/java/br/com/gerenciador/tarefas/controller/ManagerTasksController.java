@@ -8,6 +8,7 @@ import br.com.gerenciador.tarefas.response.TasksPagResponse;
 import br.com.gerenciador.tarefas.response.TasksResponse;
 import br.com.gerenciador.tarefas.response.UpdateTaskResponse;
 import br.com.gerenciador.tarefas.service.ManagerTasksService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -25,7 +26,7 @@ public class ManagerTasksController {
     private ManagerTasksService managerTasksService;
 
     @PostMapping
-    public ResponseEntity<RegisterTaskResponse> save(@RequestBody RegisterTaskRequest request) {
+    public ResponseEntity<RegisterTaskResponse> save(@Valid @RequestBody RegisterTaskRequest request) {
 
         Tasks tasks = managerTasksService.saveTask(request);
 

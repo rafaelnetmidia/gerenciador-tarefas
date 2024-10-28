@@ -3,6 +3,7 @@ package br.com.gerenciador.tarefas.service;
 import br.com.gerenciador.tarefas.entity.Users;
 import br.com.gerenciador.tarefas.repository.IRoleRepository;
 import br.com.gerenciador.tarefas.repository.IUserRepository;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -51,6 +52,9 @@ public class UserService {
     }
 
     public void delete(Users user) {
+        Users userToDelete = this.userRepository.findById(user.getId()).orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado"));
+        userToDelete.getRoles().clear();
+        this.userRepository.save(userToDelete);
         this.userRepository.deleteById(user.getId());
     }
 
